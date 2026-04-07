@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Mail, MapPin, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
@@ -9,9 +10,14 @@ export function HeroSection() {
           {/* Profile Image & Quick Info */}
           <div className="space-y-6">
             <div className="w-48 h-48 md:w-full md:h-auto md:aspect-square rounded-lg bg-secondary overflow-hidden">
-              <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
-                Profile Photo
-              </div>
+              <Image
+                src="/images/profile.jpg"
+                alt="Pietro Liguori"
+                width={280}
+                height={280}
+                className="w-full h-full object-cover"
+                priority
+              />
             </div>
             
             <div className="space-y-3 text-sm">
@@ -29,7 +35,7 @@ export function HeroSection() {
 
             <div className="flex flex-wrap gap-3 pt-2">
               <Link
-                href="https://scholar.google.com/citations?user=YOUR_ID"
+                href="https://scholar.google.com/citations?user=dDrGg2IAAAAJ&hl=it"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
@@ -38,7 +44,7 @@ export function HeroSection() {
                 <ExternalLink className="h-3 w-3" />
               </Link>
               <Link
-                href="https://orcid.org/"
+                href="https://orcid.org/0000-0002-1669-7000"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
@@ -55,18 +61,6 @@ export function HeroSection() {
                 DESSERT Lab
                 <ExternalLink className="h-3 w-3" />
               </Link>
-            </div>
-
-            {/* Metrics */}
-            <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border">
-              <div className="text-center p-3 bg-secondary/50 rounded-lg">
-                <div className="text-xl font-semibold text-foreground">370+</div>
-                <div className="text-xs text-muted-foreground">Scopus Citations</div>
-              </div>
-              <div className="text-center p-3 bg-secondary/50 rounded-lg">
-                <div className="text-xl font-semibold text-foreground">14</div>
-                <div className="text-xs text-muted-foreground">h-index</div>
-              </div>
             </div>
           </div>
 
