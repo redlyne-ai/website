@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { GraduationCap, Calendar, CheckCircle2, Clock } from "lucide-react"
+import { GraduationCap, Calendar } from "lucide-react"
 
 type ThesisStatus = "completed" | "ongoing"
 type ThesisFilter = "all" | "ongoing" | "completed" | "msc" | "bsc"
@@ -143,18 +143,6 @@ export function ThesesSection() {
 
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-2 mb-2">
-                    <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded ${
-                      thesis.status === "ongoing"
-                        ? "bg-primary/10 text-primary"
-                        : "bg-secondary text-muted-foreground"
-                    }`}>
-                      {thesis.status === "ongoing" ? (
-                        <Clock className="h-3 w-3" />
-                      ) : (
-                        <CheckCircle2 className="h-3 w-3" />
-                      )}
-                      {thesis.status === "ongoing" ? "In Progress" : "Completed"}
-                    </span>
                     <span className="text-xs px-2 py-0.5 rounded bg-secondary text-muted-foreground">
                       {thesis.degree}
                     </span>

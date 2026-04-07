@@ -5,9 +5,9 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-16 md:py-24 bg-secondary/30">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+        <div>
           {/* Contact Info */}
-          <div>
+          <div className="max-w-2xl">
             <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3">
               Contact
             </h2>
@@ -104,79 +104,6 @@ export function ContactSection() {
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Contact Form */}
-          <div className="bg-card rounded-lg border border-border p-6 md:p-8">
-            <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
-              Send a Message
-            </h3>
-            <form className="space-y-5">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
-                  placeholder="Your name"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
-                  placeholder="your@email.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-2">
-                  Subject
-                </label>
-                <select
-                  id="subject"
-                  name="subject"
-                  className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow"
-                >
-                  <option value="">Select a topic</option>
-                  <option value="thesis">Thesis Supervision Inquiry</option>
-                  <option value="phd">PhD/Research Position</option>
-                  <option value="collaboration">Research Collaboration</option>
-                  <option value="industry">Industry Partnership</option>
-                  <option value="speaking">Speaking/Tutorial Invitation</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  className="w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-shadow resize-none"
-                  placeholder="Your message..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
-              >
-                Send Message
-              </button>
-            </form>
           </div>
         </div>
       </div>
