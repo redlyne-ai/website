@@ -1,4 +1,4 @@
-import { BookOpen, Users, Award, Shield } from "lucide-react"
+import { BookOpen, Users, Shield } from "lucide-react"
 
 interface Course {
   code?: string
@@ -64,128 +64,128 @@ const teachingHighlights = [
 
 export function TeachingSection() {
   return (
-    &lt;section id="teaching" className="py-16 md:py-24"&gt;
-      &lt;div className="max-w-5xl mx-auto px-6"&gt;
-        &lt;div className="mb-12"&gt;
-          &lt;h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3"&gt;
+    <section id="teaching" className="py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="mb-12">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3">
             Teaching Portfolio
-          &lt;/h2&gt;
-          &lt;p className="text-muted-foreground max-w-2xl"&gt;
+          </h2>
+          <p className="text-muted-foreground max-w-2xl">
             Teaching in software reliability, security, programming, and AI-based systems 
             at the University of Naples Federico II.
-          &lt;/p&gt;
-        &lt;/div&gt;
+          </p>
+        </div>
 
         {/* Teaching Highlights */}
-        &lt;div className="grid md:grid-cols-3 gap-6 mb-14"&gt;
-          {teachingHighlights.map((highlight, index) =&gt; (
-            &lt;div key={index} className="flex items-start gap-4"&gt;
-              &lt;div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"&gt;
-                &lt;highlight.icon className="h-5 w-5 text-primary" /&gt;
-              &lt;/div&gt;
-              &lt;div&gt;
-                &lt;h3 className="font-medium text-foreground mb-1"&gt;{highlight.title}&lt;/h3&gt;
-                &lt;p className="text-sm text-muted-foreground leading-relaxed"&gt;
+        <div className="grid md:grid-cols-3 gap-6 mb-14">
+          {teachingHighlights.map((highlight, index) => (
+            <div key={index} className="flex items-start gap-4">
+              <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                <highlight.icon className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-medium text-foreground mb-1">{highlight.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {highlight.description}
-                &lt;/p&gt;
-              &lt;/div&gt;
-            &lt;/div&gt;
+                </p>
+              </div>
+            </div>
           ))}
-        &lt;/div&gt;
+        </div>
 
         {/* Current Courses */}
-        &lt;div className="mb-12"&gt;
-          &lt;h3 className="font-serif text-xl font-semibold text-foreground mb-6"&gt;
+        <div className="mb-12">
+          <h3 className="font-serif text-xl font-semibold text-foreground mb-6">
             Current Courses
-          &lt;/h3&gt;
-          &lt;div className="grid gap-4"&gt;
-            {currentCourses.map((course, index) =&gt; (
-              &lt;div
+          </h3>
+          <div className="grid gap-4">
+            {currentCourses.map((course, index) => (
+              <div
                 key={index}
                 className="p-5 rounded-lg border border-border bg-card hover:border-primary/30 transition-colors"
-              &gt;
-                &lt;div className="flex flex-wrap items-center gap-3 mb-2"&gt;
-                  &lt;span className={`text-xs px-2 py-0.5 rounded-full ${
+              >
+                <div className="flex flex-wrap items-center gap-3 mb-2">
+                  <span className={`text-xs px-2 py-0.5 rounded-full ${
                     course.level === "Doctoral" 
                       ? "bg-primary/20 text-primary" 
                       : "bg-secondary text-muted-foreground"
-                  }`}&gt;
+                  }`}>
                     {course.level}
-                  &lt;/span&gt;
-                  &lt;span className="text-xs text-muted-foreground"&gt;
+                  </span>
+                  <span className="text-xs text-muted-foreground">
                     {course.credits}
-                  &lt;/span&gt;
-                  &lt;span className="text-xs text-muted-foreground"&gt;
+                  </span>
+                  <span className="text-xs text-muted-foreground">
                     {course.semester}
-                  &lt;/span&gt;
-                &lt;/div&gt;
-                &lt;h4 className="font-medium text-foreground mb-1"&gt;{course.name}&lt;/h4&gt;
-                &lt;p className="text-sm text-muted-foreground"&gt;
+                  </span>
+                </div>
+                <h4 className="font-medium text-foreground mb-1">{course.name}</h4>
+                <p className="text-sm text-muted-foreground">
                   {course.program}
-                &lt;/p&gt;
-                &lt;p className="text-xs text-muted-foreground/70"&gt;
+                </p>
+                <p className="text-xs text-muted-foreground/70">
                   {course.university}
-                &lt;/p&gt;
-              &lt;/div&gt;
+                </p>
+              </div>
             ))}
-          &lt;/div&gt;
-        &lt;/div&gt;
+          </div>
+        </div>
 
         {/* Past Courses */}
-        &lt;div&gt;
-          &lt;h3 className="font-serif text-xl font-semibold text-foreground mb-4"&gt;
+        <div>
+          <h3 className="font-serif text-xl font-semibold text-foreground mb-4">
             Previously Taught
-          &lt;/h3&gt;
-          &lt;div className="flex flex-wrap gap-2"&gt;
-            {pastCourses.map((course, index) =&gt; (
-              &lt;span
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {pastCourses.map((course, index) => (
+              <span
                 key={index}
                 className="text-sm px-3 py-1.5 rounded-lg bg-secondary text-secondary-foreground"
-              &gt;
+              >
                 {course}
-              &lt;/span&gt;
+              </span>
             ))}
-          &lt;/div&gt;
-        &lt;/div&gt;
+          </div>
+        </div>
 
         {/* Teaching Statistics Table */}
-        &lt;div className="mt-12 p-6 rounded-lg border border-border bg-card"&gt;
-          &lt;h3 className="font-serif text-lg font-semibold text-foreground mb-4"&gt;
+        <div className="mt-12 p-6 rounded-lg border border-border bg-card">
+          <h3 className="font-serif text-lg font-semibold text-foreground mb-4">
             Teaching Activity Summary
-          &lt;/h3&gt;
-          &lt;div className="overflow-x-auto"&gt;
-            &lt;table className="w-full text-sm"&gt;
-              &lt;thead&gt;
-                &lt;tr className="border-b border-border"&gt;
-                  &lt;th className="text-left py-2 pr-4 font-medium text-foreground"&gt;Academic Year&lt;/th&gt;
-                  &lt;th className="text-center py-2 px-4 font-medium text-foreground"&gt;Courses&lt;/th&gt;
-                  &lt;th className="text-center py-2 pl-4 font-medium text-foreground"&gt;CFU&lt;/th&gt;
-                &lt;/tr&gt;
-              &lt;/thead&gt;
-              &lt;tbody&gt;
+          </h3>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-border">
+                  <th className="text-left py-2 pr-4 font-medium text-foreground">Academic Year</th>
+                  <th className="text-center py-2 px-4 font-medium text-foreground">Courses</th>
+                  <th className="text-center py-2 pl-4 font-medium text-foreground">CFU</th>
+                </tr>
+              </thead>
+              <tbody>
                 {[
                   { year: "2025/2026", courses: 2, cfu: 18 },
                   { year: "2024/2025", courses: 2, cfu: 12 },
                   { year: "2023/2024", courses: 1, cfu: 9 },
                   { year: "2022/2023", courses: 1, cfu: 6 },
                   { year: "2021/2022", courses: 1, cfu: 6 },
-                ].map((row, index) =&gt; (
-                  &lt;tr key={index} className="border-b border-border/50"&gt;
-                    &lt;td className="py-2 pr-4 text-muted-foreground"&gt;{row.year}&lt;/td&gt;
-                    &lt;td className="py-2 px-4 text-center text-foreground"&gt;{row.courses}&lt;/td&gt;
-                    &lt;td className="py-2 pl-4 text-center text-foreground"&gt;{row.cfu}&lt;/td&gt;
-                  &lt;/tr&gt;
+                ].map((row, index) => (
+                  <tr key={index} className="border-b border-border/50">
+                    <td className="py-2 pr-4 text-muted-foreground">{row.year}</td>
+                    <td className="py-2 px-4 text-center text-foreground">{row.courses}</td>
+                    <td className="py-2 pl-4 text-center text-foreground">{row.cfu}</td>
+                  </tr>
                 ))}
-                &lt;tr className="font-medium"&gt;
-                  &lt;td className="py-2 pr-4 text-foreground"&gt;Total&lt;/td&gt;
-                  &lt;td className="py-2 px-4 text-center text-primary"&gt;7&lt;/td&gt;
-                  &lt;td className="py-2 pl-4 text-center text-primary"&gt;51&lt;/td&gt;
-                &lt;/tr&gt;
-              &lt;/tbody&gt;
-            &lt;/table&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
+                <tr className="font-medium">
+                  <td className="py-2 pr-4 text-foreground">Total</td>
+                  <td className="py-2 px-4 text-center text-primary">7</td>
+                  <td className="py-2 pl-4 text-center text-primary">51</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

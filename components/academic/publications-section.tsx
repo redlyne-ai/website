@@ -271,24 +271,24 @@ export function PublicationsSection() {
   const conferenceCount = publications.filter(p => p.type === "conference").length
 
   return (
-    &lt;section id="publications" className="py-16 md:py-24"&gt;
-      &lt;div className="max-w-5xl mx-auto px-6"&gt;
-        &lt;div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6"&gt;
-          &lt;div&gt;
-            &lt;h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3"&gt;
+    <section id="publications" className="py-16 md:py-24">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-6">
+          <div>
+            <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3">
               Selected Publications
-            &lt;/h2&gt;
-            &lt;p className="text-muted-foreground"&gt;
+            </h2>
+            <p className="text-muted-foreground">
               35 publications total: {journalCount} journal articles (10 Q1), {conferenceCount} conference papers (1 A*, 8 A-rank)
-            &lt;/p&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+            </p>
+          </div>
+        </div>
 
-        &lt;div className="flex flex-wrap gap-2 mb-10"&gt;
-          {(Object.keys(filterLabels) as PublicationType[]).map((type) =&gt; (
-            &lt;button
+        <div className="flex flex-wrap gap-2 mb-10">
+          {(Object.keys(filterLabels) as PublicationType[]).map((type) => (
+            <button
               key={type}
-              onClick={() =&gt; {
+              onClick={() => {
                 setFilter(type)
                 setShowAll(false)
               }}
@@ -297,87 +297,87 @@ export function PublicationsSection() {
                   ? "bg-primary text-primary-foreground"
                   : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
               }`}
-            &gt;
+            >
               {filterLabels[type]}
-            &lt;/button&gt;
+            </button>
           ))}
-        &lt;/div&gt;
+        </div>
 
-        &lt;div className="space-y-4"&gt;
-          {displayedPublications.map((pub) =&gt; (
-            &lt;article
+        <div className="space-y-4">
+          {displayedPublications.map((pub) => (
+            <article
               key={pub.id}
               className="group p-5 rounded-lg border border-border bg-card hover:border-primary/30 transition-colors"
-            &gt;
-              &lt;div className="flex items-start gap-4"&gt;
-                &lt;div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center"&gt;
-                  &lt;FileText className="h-5 w-5 text-primary" /&gt;
-                &lt;/div&gt;
+            >
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <FileText className="h-5 w-5 text-primary" />
+                </div>
                 
-                &lt;div className="flex-1 min-w-0"&gt;
-                  &lt;div className="flex flex-wrap items-center gap-2 mb-1.5"&gt;
-                    &lt;span className="text-xs font-medium px-2 py-0.5 rounded bg-secondary text-muted-foreground"&gt;
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-1.5">
+                    <span className="text-xs font-medium px-2 py-0.5 rounded bg-secondary text-muted-foreground">
                       {pub.year}
-                    &lt;/span&gt;
-                    {pub.ranking &amp;&amp; (
-                      &lt;span className={`text-xs font-medium px-2 py-0.5 rounded ${
+                    </span>
+                    {pub.ranking && (
+                      <span className={`text-xs font-medium px-2 py-0.5 rounded ${
                         pub.ranking === "A*" 
                           ? "bg-primary/20 text-primary" 
                           : pub.ranking === "Q1" || pub.ranking === "A"
                           ? "bg-primary/10 text-primary"
                           : "bg-secondary text-muted-foreground"
-                      }`}&gt;
+                      }`}>
                         {pub.type === "journal" ? `SJR ${pub.ranking}` : `CORE ${pub.ranking}`}
-                      &lt;/span&gt;
+                      </span>
                     )}
-                    &lt;span className="text-xs text-muted-foreground capitalize"&gt;
+                    <span className="text-xs text-muted-foreground capitalize">
                       {pub.type === "journal" ? "Journal" : pub.type === "conference" ? "Conference" : "Workshop"}
-                    &lt;/span&gt;
-                  &lt;/div&gt;
+                    </span>
+                  </div>
                   
-                  &lt;h3 className="font-medium text-foreground mb-1 leading-snug"&gt;
+                  <h3 className="font-medium text-foreground mb-1 leading-snug">
                     {pub.title}
-                  &lt;/h3&gt;
+                  </h3>
                   
-                  &lt;p className="text-sm text-muted-foreground mb-1"&gt;
+                  <p className="text-sm text-muted-foreground mb-1">
                     {pub.authors}
-                  &lt;/p&gt;
+                  </p>
                   
-                  &lt;p className="text-sm text-muted-foreground/80 italic"&gt;
+                  <p className="text-sm text-muted-foreground/80 italic">
                     {pub.venue}
-                  &lt;/p&gt;
+                  </p>
                   
-                  {pub.doi &amp;&amp; (
-                    &lt;div className="mt-3"&gt;
-                      &lt;a
+                  {pub.doi && (
+                    <div className="mt-3">
+                      <a
                         href={`https://doi.org/${pub.doi}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline"
-                      &gt;
+                      >
                         DOI: {pub.doi}
-                        &lt;ExternalLink className="h-3 w-3" /&gt;
-                      &lt;/a&gt;
-                    &lt;/div&gt;
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    </div>
                   )}
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/article&gt;
+                </div>
+              </div>
+            </article>
           ))}
-        &lt;/div&gt;
+        </div>
 
-        {filteredPublications.length &gt; 6 &amp;&amp; (
-          &lt;div className="mt-8 text-center"&gt;
-            &lt;button
-              onClick={() =&gt; setShowAll(!showAll)}
+        {filteredPublications.length > 6 && (
+          <div className="mt-8 text-center">
+            <button
+              onClick={() => setShowAll(!showAll)}
               className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-            &gt;
+            >
               {showAll ? "Show Less" : `Show All ${filteredPublications.length} Publications`}
-              &lt;ChevronDown className={`h-4 w-4 transition-transform ${showAll ? "rotate-180" : ""}`} /&gt;
-            &lt;/button&gt;
-          &lt;/div&gt;
+              <ChevronDown className={`h-4 w-4 transition-transform ${showAll ? "rotate-180" : ""}`} />
+            </button>
+          </div>
         )}
-      &lt;/div&gt;
-    &lt;/section&gt;
+      </div>
+    </section>
   )
 }

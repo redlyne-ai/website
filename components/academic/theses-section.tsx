@@ -69,113 +69,113 @@ export function ThesesSection() {
   const bscCount = theses.filter((t) => t.degree === "BSc").length
 
   return (
-    &lt;section id="theses" className="py-16 md:py-24 bg-secondary/30"&gt;
-      &lt;div className="max-w-5xl mx-auto px-6"&gt;
-        &lt;div className="mb-10"&gt;
-          &lt;h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3"&gt;
+    <section id="theses" className="py-16 md:py-24 bg-secondary/30">
+      <div className="max-w-5xl mx-auto px-6">
+        <div className="mb-10">
+          <h2 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-3">
             Supervised Theses
-          &lt;/h2&gt;
-          &lt;p className="text-muted-foreground max-w-2xl"&gt;
+          </h2>
+          <p className="text-muted-foreground max-w-2xl">
             Graduate students supervised at the University of Naples Federico II (2019-2026).
-          &lt;/p&gt;
-        &lt;/div&gt;
+          </p>
+        </div>
 
         {/* Stats */}
-        &lt;div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10"&gt;
-          &lt;div className="bg-card rounded-lg p-4 border border-border text-center"&gt;
-            &lt;div className="text-2xl font-semibold text-foreground"&gt;{theses.length}&lt;/div&gt;
-            &lt;div className="text-sm text-muted-foreground"&gt;Total Theses&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div className="bg-card rounded-lg p-4 border border-border text-center"&gt;
-            &lt;div className="text-2xl font-semibold text-primary"&gt;{ongoingCount}&lt;/div&gt;
-            &lt;div className="text-sm text-muted-foreground"&gt;Ongoing&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div className="bg-card rounded-lg p-4 border border-border text-center"&gt;
-            &lt;div className="text-2xl font-semibold text-foreground"&gt;{mscCount}&lt;/div&gt;
-            &lt;div className="text-sm text-muted-foreground"&gt;{"Master's"}&lt;/div&gt;
-          &lt;/div&gt;
-          &lt;div className="bg-card rounded-lg p-4 border border-border text-center"&gt;
-            &lt;div className="text-2xl font-semibold text-foreground"&gt;{bscCount}&lt;/div&gt;
-            &lt;div className="text-sm text-muted-foreground"&gt;{"Bachelor's"}&lt;/div&gt;
-          &lt;/div&gt;
-        &lt;/div&gt;
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          <div className="bg-card rounded-lg p-4 border border-border text-center">
+            <div className="text-2xl font-semibold text-foreground">{theses.length}</div>
+            <div className="text-sm text-muted-foreground">Total Theses</div>
+          </div>
+          <div className="bg-card rounded-lg p-4 border border-border text-center">
+            <div className="text-2xl font-semibold text-primary">{ongoingCount}</div>
+            <div className="text-sm text-muted-foreground">Ongoing</div>
+          </div>
+          <div className="bg-card rounded-lg p-4 border border-border text-center">
+            <div className="text-2xl font-semibold text-foreground">{mscCount}</div>
+            <div className="text-sm text-muted-foreground">{"Master's"}</div>
+          </div>
+          <div className="bg-card rounded-lg p-4 border border-border text-center">
+            <div className="text-2xl font-semibold text-foreground">{bscCount}</div>
+            <div className="text-sm text-muted-foreground">{"Bachelor's"}</div>
+          </div>
+        </div>
 
         {/* Tabs */}
-        &lt;div className="flex flex-wrap gap-2 mb-8"&gt;
+        <div className="flex flex-wrap gap-2 mb-8">
           {[
             { key: "all", label: "All" },
             { key: "ongoing", label: "Ongoing" },
             { key: "completed", label: "Completed" },
             { key: "msc", label: "Master's" },
             { key: "bsc", label: "Bachelor's" },
-          ].map((tab) =&gt; (
-            &lt;button
+          ].map((tab) => (
+            <button
               key={tab.key}
-              onClick={() =&gt; setActiveTab(tab.key as ThesisFilter)}
+              onClick={() => setActiveTab(tab.key as ThesisFilter)}
               className={`text-sm px-4 py-2 rounded-full transition-colors ${
                 activeTab === tab.key
                   ? "bg-primary text-primary-foreground"
                   : "bg-card text-muted-foreground hover:bg-card/80 border border-border"
               }`}
-            &gt;
+            >
               {tab.label}
-            &lt;/button&gt;
+            </button>
           ))}
-        &lt;/div&gt;
+        </div>
 
         {/* Theses List */}
-        &lt;div className="space-y-3"&gt;
-          {filteredTheses.map((thesis) =&gt; (
-            &lt;article
+        <div className="space-y-3">
+          {filteredTheses.map((thesis) => (
+            <article
               key={thesis.id}
               className="group p-4 rounded-lg border border-border bg-card hover:border-primary/30 transition-colors"
-            &gt;
-              &lt;div className="flex items-start gap-4"&gt;
-                &lt;div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center ${
+            >
+              <div className="flex items-start gap-4">
+                <div className={`shrink-0 w-10 h-10 rounded-lg flex items-center justify-center ${
                   thesis.status === "ongoing" 
                     ? "bg-primary/10" 
                     : "bg-secondary"
-                }`}&gt;
-                  &lt;GraduationCap className={`h-5 w-5 ${
+                }`}>
+                  <GraduationCap className={`h-5 w-5 ${
                     thesis.status === "ongoing" ? "text-primary" : "text-muted-foreground"
-                  }`} /&gt;
-                &lt;/div&gt;
+                  }`} />
+                </div>
 
-                &lt;div className="flex-1 min-w-0"&gt;
-                  &lt;div className="flex flex-wrap items-center gap-2 mb-2"&gt;
-                    &lt;span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded ${
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <span className={`inline-flex items-center gap-1 text-xs font-medium px-2 py-0.5 rounded ${
                       thesis.status === "ongoing"
                         ? "bg-primary/10 text-primary"
                         : "bg-secondary text-muted-foreground"
-                    }`}&gt;
+                    }`}>
                       {thesis.status === "ongoing" ? (
-                        &lt;Clock className="h-3 w-3" /&gt;
+                        <Clock className="h-3 w-3" />
                       ) : (
-                        &lt;CheckCircle2 className="h-3 w-3" /&gt;
+                        <CheckCircle2 className="h-3 w-3" />
                       )}
                       {thesis.status === "ongoing" ? "In Progress" : "Completed"}
-                    &lt;/span&gt;
-                    &lt;span className="text-xs px-2 py-0.5 rounded bg-secondary text-muted-foreground"&gt;
+                    </span>
+                    <span className="text-xs px-2 py-0.5 rounded bg-secondary text-muted-foreground">
                       {thesis.degree}
-                    &lt;/span&gt;
-                    &lt;span className="text-xs px-2 py-0.5 rounded bg-secondary text-muted-foreground"&gt;
+                    </span>
+                    <span className="text-xs px-2 py-0.5 rounded bg-secondary text-muted-foreground">
                       {thesis.role}
-                    &lt;/span&gt;
-                    &lt;span className="inline-flex items-center gap-1 text-xs text-muted-foreground"&gt;
-                      &lt;Calendar className="h-3 w-3" /&gt;
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
+                      <Calendar className="h-3 w-3" />
                       {thesis.year}
-                    &lt;/span&gt;
-                  &lt;/div&gt;
+                    </span>
+                  </div>
 
-                  &lt;h3 className="text-sm font-medium text-foreground leading-snug"&gt;
+                  <h3 className="text-sm font-medium text-foreground leading-snug">
                     {thesis.title}
-                  &lt;/h3&gt;
-                &lt;/div&gt;
-              &lt;/div&gt;
-            &lt;/article&gt;
+                  </h3>
+                </div>
+              </div>
+            </article>
           ))}
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/section&gt;
+        </div>
+      </div>
+    </section>
   )
 }
