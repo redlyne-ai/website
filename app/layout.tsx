@@ -1,19 +1,28 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Source_Serif_4, Inter } from 'next/font/google'
 
 import './globals.css'
 
-const _inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const _jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono' })
+const sourceSerif = Source_Serif_4({ 
+  subsets: ['latin'], 
+  variable: '--font-serif',
+  display: 'swap',
+})
+
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-sans',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'Redlyne - Real-Time Security for AI Code Generators',
-  description: 'Redlyne scans AI-generated code for security vulnerabilities and tells the AI how to fix them in real time. 94% accuracy. Zero hallucinations.',
+  title: 'Dr. Scholar Name - Academic Portfolio',
+  description: 'Academic portfolio featuring research interests, publications, supervised theses, teaching portfolio, and contact information.',
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a0a0a',
+  themeColor: '#f8fafc',
 }
 
 export default function RootLayout({
@@ -22,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${sourceSerif.variable} ${inter.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   )
