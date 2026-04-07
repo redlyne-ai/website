@@ -9,8 +9,9 @@ const navItems = [
   { label: "Research", href: "#research" },
   { label: "Publications", href: "#publications" },
   { label: "Service", href: "#service" },
-  { label: "Theses", href: "#theses" },
   { label: "Teaching", href: "#teaching" },
+  { label: "Theses", href: "#theses" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ]
 

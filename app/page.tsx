@@ -3,8 +3,9 @@ import { HeroSection } from "@/components/academic/hero-section"
 import { ResearchSection } from "@/components/academic/research-section"
 import { PublicationsSection } from "@/components/academic/publications-section"
 import { ServiceSection } from "@/components/academic/service-section"
-import { ThesesSection } from "@/components/academic/theses-section"
 import { TeachingSection } from "@/components/academic/teaching-section"
+import { ThesesSection } from "@/components/academic/theses-section"
+import { ProjectsSection } from "@/components/academic/projects-section"
 import { ContactSection } from "@/components/academic/contact-section"
 import { Footer } from "@/components/academic/footer"
 
@@ -16,8 +17,9 @@ export default function Page() {
       <ResearchSection />
       <PublicationsSection />
       <ServiceSection />
-      <ThesesSection />
       <TeachingSection />
+      <ThesesSection />
+      <ProjectsSection />
       <ContactSection />
       <Footer />
     </main>
