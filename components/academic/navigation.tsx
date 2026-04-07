@@ -21,7 +21,7 @@ export function Navigation() {
       <nav className="max-w-5xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="font-serif text-xl font-semibold text-foreground">
-            Dr. Scholar Name
+            Pietro Liguori
           </Link>
 
           {/* Desktop Navigation */}

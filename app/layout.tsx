@@ -17,8 +17,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Dr. Scholar Name - Academic Portfolio',
-  description: 'Academic portfolio featuring research interests, publications, supervised theses, teaching portfolio, and contact information.',
+  title: 'Pietro Liguori, PhD - Academic Portfolio',
+  description: 'Assistant Professor (RTD-A) at University of Naples Federico II. Research in AI-based code generation, software security, cybersecurity, and cloud computing reliability.',
 }
 
 export const viewport: Viewport = {

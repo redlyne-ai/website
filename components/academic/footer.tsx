@@ -4,10 +4,10 @@ export function Footer() {
       <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Dr. Scholar Name. All rights reserved.
+            © {new Date().getFullYear()} Pietro Liguori. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
-            Department of [Department], University Name
+            DIETI, Università degli Studi di Napoli Federico II
           </p>
         </div>
       </div>
