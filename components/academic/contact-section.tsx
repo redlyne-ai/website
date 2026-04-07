@@ -86,24 +86,7 @@ export function ContactSection() {
               </div>
             </div>
 
-            {/* Service Activities */}
-            <div className="mt-8 pt-8 border-t border-border">
-              <h3 className="font-medium text-foreground mb-4">Service Activities</h3>
-              <div className="space-y-3 text-sm text-muted-foreground">
-                <div>
-                  <span className="font-medium text-foreground">Program Chair:</span> DSML 2026, ReSAISE 2023-2025
-                </div>
-                <div>
-                  <span className="font-medium text-foreground">Guest Editor:</span> JSS, ASE, Future Internet
-                </div>
-                <div>
-                  <span className="font-medium text-foreground">PC Member:</span> ISSRE, DSN, ICPC, ICSME, EDCC, LADC
-                </div>
-                <div>
-                  <span className="font-medium text-foreground">Reviewer:</span> IEEE TSE, IEEE TDSC, ACM TOSEM, EMSE, JSS
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>

@@ -148,43 +148,7 @@ export function TeachingSection() {
           </div>
         </div>
 
-        {/* Teaching Statistics Table */}
-        <div className="mt-12 p-6 rounded-lg border border-border bg-card">
-          <h3 className="font-serif text-lg font-semibold text-foreground mb-4">
-            Teaching Activity Summary
-          </h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="text-left py-2 pr-4 font-medium text-foreground">Academic Year</th>
-                  <th className="text-center py-2 px-4 font-medium text-foreground">Courses</th>
-                  <th className="text-center py-2 pl-4 font-medium text-foreground">CFU</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { year: "2025/2026", courses: 2, cfu: 18 },
-                  { year: "2024/2025", courses: 2, cfu: 12 },
-                  { year: "2023/2024", courses: 1, cfu: 9 },
-                  { year: "2022/2023", courses: 1, cfu: 6 },
-                  { year: "2021/2022", courses: 1, cfu: 6 },
-                ].map((row, index) => (
-                  <tr key={index} className="border-b border-border/50">
-                    <td className="py-2 pr-4 text-muted-foreground">{row.year}</td>
-                    <td className="py-2 px-4 text-center text-foreground">{row.courses}</td>
-                    <td className="py-2 pl-4 text-center text-foreground">{row.cfu}</td>
-                  </tr>
-                ))}
-                <tr className="font-medium">
-                  <td className="py-2 pr-4 text-foreground">Total</td>
-                  <td className="py-2 px-4 text-center text-primary">7</td>
-                  <td className="py-2 pl-4 text-center text-primary">51</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
+
       </div>
     </section>
   )
