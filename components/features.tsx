@@ -8,7 +8,7 @@ import {
 const features = [
   {
     icon: ShieldCheck,
-    title: "Built for AI. Not built with AI.",
+    title: "Built for AI. Built without AI.",
     description:
       "Redlyne uses a deterministic rule engine — no LLM, no probabilistic guesses, no hallucinated fixes. Every vulnerability flag and remediation suggestion is reproducible and auditable.",
   },

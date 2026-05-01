@@ -42,7 +42,7 @@ export function Hero() {
           {/* Tagline */}
           <p className="mt-6 text-balance text-xl font-semibold tracking-tight text-foreground md:text-2xl">
             Built <span className="text-primary">for</span> AI.{" "}
-            Not built <span className="text-primary">with</span> AI.
+            Built <span className="text-primary">without</span> AI.
           </p>
 
           {/* Subheading */}
