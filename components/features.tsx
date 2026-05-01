@@ -1,29 +1,34 @@
-import { Code2, MousePointerClick, Lock, Github } from "lucide-react"
+import {
+  ShieldCheck,
+  BookOpen,
+  MousePointerClick,
+  Lock,
+} from "lucide-react"
 
 const features = [
   {
-    icon: Code2,
-    title: "Built for AI-generated code",
+    icon: ShieldCheck,
+    title: "Built for AI. Not built with AI.",
     description:
-      "Redlyne analyzes the kind of Python code AI assistants actually produce — including incomplete fragments and snippets out of context — not full programs.",
+      "Redlyne uses a deterministic rule engine — no LLM, no probabilistic guesses, no hallucinated fixes. Every vulnerability flag and remediation suggestion is reproducible and auditable.",
+  },
+  {
+    icon: BookOpen,
+    title: "Expert-curated rule set",
+    description:
+      "Detection patterns are hand-crafted by security researchers, not auto-generated. Each rule targets a real vulnerability class observed in AI-generated Python code, including OWASP Top 10 categories.",
   },
   {
     icon: MousePointerClick,
     title: "One-click remediation",
     description:
-      "Right-click any selection in the editor. Redlyne flags the vulnerabilities and proposes a patched version you can apply with a single confirmation.",
+      "Right-click any Python selection in your editor. Redlyne flags the vulnerabilities and proposes a patched version you can apply with a single confirmation.",
   },
   {
     icon: Lock,
     title: "Privacy by design",
     description:
       "Runs entirely on your machine. No code, no telemetry, no metadata is ever sent to a remote server. What you write stays with you.",
-  },
-  {
-    icon: Github,
-    title: "Open source",
-    description:
-      "The extension code is Apache 2.0 — fork it, audit it, contribute. The detection rules are bundled as a separate, curated layer.",
   },
 ]
 
@@ -33,11 +38,12 @@ export function Features() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
-            Designed for the way you actually code now
+            A new kind of linter for a new kind of code
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground text-pretty leading-relaxed">
             Generic linters miss the failure modes of AI-generated code.
-            Redlyne is focused on exactly those.
+            Redlyne is purpose-built for them — with a deterministic engine
+            and a rule set curated by security researchers.
           </p>
         </div>
 

@@ -39,11 +39,19 @@ export function Hero() {
             <span className="text-primary">AI-generated code</span>
           </h1>
 
+          {/* Tagline */}
+          <p className="mt-6 text-balance text-xl font-semibold tracking-tight text-foreground md:text-2xl">
+            Built <span className="text-primary">for</span> AI.{" "}
+            Not built <span className="text-primary">with</span> AI.
+          </p>
+
           {/* Subheading */}
-          <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
+          <p className="mt-4 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
             Redlyne is a VS Code extension that detects vulnerabilities in
-            AI-generated Python code and proposes one-click patches —
-            directly in your editor, without ever sending code to a server.
+            AI-generated Python code and proposes one-click patches.
+            Powered by a deterministic rule engine curated by security
+            researchers — no LLM, no hallucinations, every flag is
+            reproducible.
           </p>
 
           {/* CTA */}
@@ -78,13 +86,13 @@ export function Hero() {
           {/* Tags */}
           <div className="mt-12 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
             <span className="rounded-full border border-border px-3 py-1">
-              Open source
+              Deterministic engine
+            </span>
+            <span className="rounded-full border border-border px-3 py-1">
+              Expert-curated rules
             </span>
             <span className="rounded-full border border-border px-3 py-1">
               Local execution
-            </span>
-            <span className="rounded-full border border-border px-3 py-1">
-              No telemetry
             </span>
             <span className="rounded-full border border-border px-3 py-1">
               Apache 2.0
