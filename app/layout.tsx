@@ -8,8 +8,20 @@ const _inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const _jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-jetbrains-mono' })
 
 export const metadata: Metadata = {
-  title: 'Redlyne - Real-Time Security for AI Code Generators',
-  description: 'Redlyne scans AI-generated code for security vulnerabilities and tells the AI how to fix them in real time. 94% accuracy. Zero hallucinations.',
+  title: 'Redlyne — Security for AI-generated code',
+  description: 'Redlyne is a VS Code extension that detects vulnerabilities in AI-generated Python code and proposes one-click patches. Local execution. Open source.',
+  metadataBase: new URL('https://redlyne.io'),
+  icons: {
+    icon: '/redlyne-icon.png',
+  },
+  openGraph: {
+    title: 'Redlyne — Security for AI-generated code',
+    description: 'Detect and patch vulnerabilities in AI-generated Python code, directly from VS Code.',
+    url: 'https://redlyne.io',
+    siteName: 'Redlyne',
+    images: ['/redlyne-icon.png'],
+    type: 'website',
+  },
 }
 
 export const viewport: Viewport = {

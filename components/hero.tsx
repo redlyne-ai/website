@@ -1,6 +1,11 @@
+import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ArrowRight, Shield } from "lucide-react"
+import { ArrowRight, Github } from "lucide-react"
+
+const MARKETPLACE_URL =
+  "https://marketplace.visualstudio.com/items?itemName=redlyne.redlyne-ai"
+const GITHUB_URL = "https://github.com/redlyne-ai/redlyne"
 
 export function Hero() {
   return (
@@ -13,53 +18,47 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center text-center">
-          {/* Badge */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5">
-            <Shield className="h-4 w-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Peer-Reviewed Research</span>
-            <span className="text-sm text-muted-foreground">{'|'}</span>
-            <span className="text-sm text-muted-foreground">Published in Elsevier 2025</span>
+          {/* Brand mark */}
+          <div className="mb-10 flex items-center gap-4">
+            <Image
+              src="/redlyne-icon.png"
+              alt="Redlyne"
+              width={72}
+              height={72}
+              className="rounded-xl"
+              priority
+            />
+            <span className="text-5xl font-bold tracking-tight text-foreground md:text-6xl">
+              Red<span className="text-primary">lyne</span>
+            </span>
           </div>
 
           {/* Heading */}
           <h1 className="max-w-4xl text-balance text-4xl font-bold tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Real-time security for{" "}
-            <span className="text-primary">AI code generators</span>
+            Security for{" "}
+            <span className="text-primary">AI-generated code</span>
           </h1>
 
           {/* Subheading */}
           <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
-            Redlyne scans AI-generated code for vulnerabilities and tells the AI how to fix them — before the developer ever sees the insecure version.
+            Redlyne is a VS Code extension that detects vulnerabilities in
+            AI-generated Python code and proposes one-click patches —
+            directly in your editor, without ever sending code to a server.
           </p>
-
-          {/* Stats row */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold text-foreground md:text-4xl">94%</span>
-              <span className="mt-1 text-sm text-muted-foreground">F1 Score</span>
-            </div>
-            <div className="h-10 w-px bg-border" aria-hidden="true" />
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold text-foreground md:text-4xl">0.14s</span>
-              <span className="mt-1 text-sm text-muted-foreground">Scan Time</span>
-            </div>
-            <div className="h-10 w-px bg-border" aria-hidden="true" />
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold text-foreground md:text-4xl">35+</span>
-              <span className="mt-1 text-sm text-muted-foreground">CWEs Covered</span>
-            </div>
-            <div className="h-10 w-px bg-border" aria-hidden="true" />
-            <div className="flex flex-col items-center">
-              <span className="text-3xl font-bold text-foreground md:text-4xl">0</span>
-              <span className="mt-1 text-sm text-muted-foreground">Hallucinations</span>
-            </div>
-          </div>
 
           {/* CTA */}
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2" asChild>
-              <Link href="https://redlyne.io" target="_blank" rel="noopener noreferrer">
-                Get Started Free
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 gap-2"
+              asChild
+            >
+              <Link
+                href={MARKETPLACE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Install for VS Code
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
@@ -69,23 +68,27 @@ export function Hero() {
               className="border-border text-foreground hover:bg-secondary gap-2 bg-transparent"
               asChild
             >
-              <Link href="#how-it-works">
-                See How It Works
+              <Link href={GITHUB_URL} target="_blank" rel="noopener noreferrer">
+                <Github className="h-4 w-4" />
+                View on GitHub
               </Link>
             </Button>
           </div>
 
-          {/* Supported tools */}
-          <div className="mt-16 flex flex-col items-center gap-3">
-            <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
-              Works with
+          {/* Tags */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+            <span className="rounded-full border border-border px-3 py-1">
+              Open source
             </span>
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
-              <span className="flex items-center gap-1.5 font-mono">GitHub Copilot</span>
-              <span className="flex items-center gap-1.5 font-mono">Claude Code</span>
-              <span className="flex items-center gap-1.5 font-mono">ChatGPT</span>
-              <span className="flex items-center gap-1.5 font-mono">Gemini</span>
-            </div>
+            <span className="rounded-full border border-border px-3 py-1">
+              Local execution
+            </span>
+            <span className="rounded-full border border-border px-3 py-1">
+              No telemetry
+            </span>
+            <span className="rounded-full border border-border px-3 py-1">
+              Apache 2.0
+            </span>
           </div>
         </div>
       </div>

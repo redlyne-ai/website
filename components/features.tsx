@@ -1,41 +1,29 @@
-import { Zap, ShieldCheck, Code2, GitBranch, Terminal, RefreshCcw } from "lucide-react"
+import { Code2, MousePointerClick, Lock, Github } from "lucide-react"
 
 const features = [
   {
-    icon: Zap,
-    title: "Sub-100ms Scans",
-    description:
-      "Lightweight pattern-matching engine scans AI-generated Python snippets in under 100ms. No AST required, no configuration needed.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "94% F1 Score",
-    description:
-      "Validated on 500 code samples from ChatGPT, Copilot, Gemini, and Claude. Outperforms Semgrep, CodeQL, Bandit, and LLM-based detectors.",
-  },
-  {
     icon: Code2,
-    title: "Works on Fragments",
+    title: "Built for AI-generated code",
     description:
-      "Unlike traditional tools that need complete programs, Redlyne analyzes incomplete code snippets — the kind AI assistants actually produce.",
+      "Redlyne analyzes the kind of Python code AI assistants actually produce — including incomplete fragments and snippets out of context — not full programs.",
   },
   {
-    icon: RefreshCcw,
-    title: "AI Feedback Loop",
+    icon: MousePointerClick,
+    title: "One-click remediation",
     description:
-      "Structured remediation output feeds directly back into AI coding agents. The AI self-corrects before the developer sees insecure code.",
+      "Right-click any selection in the editor. Redlyne flags the vulnerabilities and proposes a patched version you can apply with a single confirmation.",
   },
   {
-    icon: GitBranch,
-    title: "CI/CD Integration",
+    icon: Lock,
+    title: "Privacy by design",
     description:
-      "GitHub Actions integration works in your pipeline today. Scan every commit automatically with zero configuration overhead.",
+      "Runs entirely on your machine. No code, no telemetry, no metadata is ever sent to a remote server. What you write stays with you.",
   },
   {
-    icon: Terminal,
-    title: "Deterministic Engine",
+    icon: Github,
+    title: "Open source",
     description:
-      "85 regex-based detection rules covering 35 CWEs from the OWASP Top 10. Every flag is real. Every fix suggestion is correct. Zero hallucinations.",
+      "The extension code is Apache 2.0 — fork it, audit it, contribute. The detection rules are bundled as a separate, curated layer.",
   },
 ]
 
@@ -45,14 +33,15 @@ export function Features() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
-            Built different from the ground up
+            Designed for the way you actually code now
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground text-pretty leading-relaxed">
-            Traditional security tools break on AI-generated code. Redlyne was purpose-built for the age of AI coding assistants.
+            Generic linters miss the failure modes of AI-generated code.
+            Redlyne is focused on exactly those.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
           {features.map((feature) => (
             <div
               key={feature.title}
@@ -61,8 +50,12 @@ export function Features() {
               <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
                 <feature.icon className="h-5 w-5" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground">{feature.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{feature.description}</p>
+              <h3 className="text-lg font-semibold text-foreground">
+                {feature.title}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>

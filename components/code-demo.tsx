@@ -3,24 +3,31 @@
 import { useState } from "react"
 import { AlertTriangle, CheckCircle2, ArrowRight } from "lucide-react"
 
-const unsafeCode = `import yaml
+const unsafeCode = `from flask import Flask, request, make_response
 
-def parse_config(user_input):
-    # AI-generated code using yaml.load()
-    data = yaml.load(user_input)
-    return data`
+app = Flask(__name__)
 
-const redlyneOutput = `  CWE-502: Deserialization of Untrusted Data
-  Location: line 5 - yaml.load(user_input)
-  Severity: HIGH
-  Fix: Replace yaml.load() with yaml.safe_load()`
+@app.route("/profile")
+def profile():
+    username = request.args.get('username')
+    response = make_response(f"Hello {username}")
+    return response`
 
-const fixedCode = `import yaml
+const redlyneOutput = `🔴 [Redlyne]: Detected vulnerabilities of Broken Access Control
 
-def parse_config(user_input):
-    # Secured by Redlyne
-    data = yaml.safe_load(user_input)
-    return data`
+🔴 [Redlyne]:
+  • escape the variable and validate contents before using it`
+
+const fixedCode = `from flask import escape
+from flask import Flask, request, make_response
+
+app = Flask(__name__)
+
+@app.route("/profile")
+def profile():
+    username = request.args.get('username')
+    response = make_response(f"Hello {escape(username)}")
+    return response`
 
 export function CodeDemo() {
   const [step, setStep] = useState<0 | 1 | 2>(0)
@@ -33,7 +40,9 @@ export function CodeDemo() {
             See it in action
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground text-pretty leading-relaxed">
-            An AI assistant generates insecure code. Redlyne catches it in 0.14 seconds, feeds the fix back to the AI, and the developer gets secure code on the first try.
+            An AI assistant generates insecure code. You select it, run the
+            analysis, and Redlyne suggests a remediated version you can apply
+            in one click — without ever leaving the editor.
           </p>
         </div>
 
@@ -49,7 +58,7 @@ export function CodeDemo() {
             }`}
           >
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20 text-xs text-primary">1</span>
-            AI Generates Code
+            AI generates code
           </button>
           <ArrowRight className="h-4 w-4 text-muted-foreground hidden sm:block" />
           <button
@@ -62,7 +71,7 @@ export function CodeDemo() {
             }`}
           >
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20 text-xs text-primary">2</span>
-            Redlyne Scans
+            Redlyne flags it
           </button>
           <ArrowRight className="h-4 w-4 text-muted-foreground hidden sm:block" />
           <button
@@ -75,7 +84,7 @@ export function CodeDemo() {
             }`}
           >
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-primary/20 text-xs text-primary">3</span>
-            Developer Gets Secure Code
+            Apply the fix
           </button>
         </div>
 
@@ -90,9 +99,9 @@ export function CodeDemo() {
                 <div className="h-3 w-3 rounded-full bg-muted-foreground/30" />
               </div>
               <span className="text-xs text-muted-foreground font-mono">
-                {step === 0 && "config_parser.py — AI Output"}
+                {step === 0 && "app.py — AI Output"}
                 {step === 1 && "Redlyne Analysis"}
-                {step === 2 && "config_parser.py — Secured"}
+                {step === 2 && "app.py — Secured"}
               </span>
               <div className="flex items-center gap-1.5">
                 {step === 0 && (
@@ -130,7 +139,9 @@ export function CodeDemo() {
                     </pre>
                   </div>
                   <p className="text-sm text-muted-foreground">
-                    Detected in <span className="font-mono font-bold text-foreground">0.14s</span> using deterministic pattern matching. No AI, no hallucinations.
+                    Deterministic pattern matching. No black-box ML, no
+                    hallucinated fixes — every suggestion is auditable and
+                    reproducible.
                   </p>
                 </div>
               )}
