@@ -52,6 +52,15 @@ export function Footer() {
                 </Link>
               </Button>
             </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Questions, partnerships, or commercial licensing?{" "}
+              <Link
+                href="mailto:info@redlyne.io"
+                className="text-primary underline-offset-2 hover:underline"
+              >
+                info@redlyne.io
+              </Link>
+            </p>
           </div>
         </div>
       </section>
@@ -95,6 +104,12 @@ export function Footer() {
                 className="transition-colors hover:text-foreground"
               >
                 GitHub
+              </Link>
+              <Link
+                href="mailto:info@redlyne.io"
+                className="transition-colors hover:text-foreground"
+              >
+                Contact
               </Link>
             </div>
           </div>
