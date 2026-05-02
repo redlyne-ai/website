@@ -1,4 +1,4 @@
-import { Trophy, ShieldCheck, Wrench, Layers } from "lucide-react"
+import { Trophy, ShieldCheck, Wrench, Layers, Sparkles, Check } from "lucide-react"
 
 type Row = {
   name: string
@@ -146,8 +146,58 @@ export function Benchmark() {
           ))}
         </div>
 
+        {/* Highlights callout — "won on what matters" */}
+        <div className="mt-12 rounded-2xl border-2 border-primary/30 bg-primary/[0.04] p-6 md:p-8">
+          <div className="mb-5 flex items-center gap-2.5">
+            <Sparkles className="h-5 w-5 text-primary" />
+            <h3 className="text-base font-bold uppercase tracking-wider text-primary md:text-lg">
+              Won on what matters
+            </h3>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <Check className="h-3 w-3" strokeWidth={3} />
+              </span>
+              <p className="text-sm leading-relaxed text-foreground">
+                <strong>Highest Precision</strong> of any tool tested —
+                fewer false positives means less alert fatigue when reviewing
+                AI-generated code.
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <Check className="h-3 w-3" strokeWidth={3} />
+              </span>
+              <p className="text-sm leading-relaxed text-foreground">
+                <strong>Highest F1 and Accuracy</strong> among static
+                analyzers, and on par with state-of-the-art LLMs for F1.
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <Check className="h-3 w-3" strokeWidth={3} />
+              </span>
+              <p className="text-sm leading-relaxed text-foreground">
+                <strong>Best patch correctness</strong> among tools that
+                actually modify code (LLMs land between 49% and 65%).
+              </p>
+            </div>
+            <div className="flex items-start gap-3">
+              <span className="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                <Check className="h-3 w-3" strokeWidth={3} />
+              </span>
+              <p className="text-sm leading-relaxed text-foreground">
+                <strong>Patches preserve code complexity</strong> (mean
+                cyclomatic complexity 2.29 vs. 2.40 in the original code).
+                LLM-based patchers significantly increase it.
+              </p>
+            </div>
+          </div>
+        </div>
+
         {/* Comparison table */}
-        <div className="mt-12 overflow-x-auto rounded-xl border border-border">
+        <div className="mt-8 overflow-x-auto rounded-xl border border-border">
           <table className="w-full text-sm">
             <thead className="bg-secondary/30 text-xs uppercase tracking-wide text-muted-foreground">
               <tr>
