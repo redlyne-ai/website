@@ -86,6 +86,9 @@ export function Footer() {
               <Link href="#features" className="transition-colors hover:text-foreground">
                 Features
               </Link>
+              <Link href="#benchmark" className="transition-colors hover:text-foreground">
+                Benchmark
+              </Link>
               <Link href="#how-it-works" className="transition-colors hover:text-foreground">
                 How it works
               </Link>

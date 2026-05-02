@@ -38,6 +38,12 @@ export function Navbar() {
             Features
           </Link>
           <Link
+            href="#benchmark"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            Benchmark
+          </Link>
+          <Link
             href="#how-it-works"
             className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
@@ -91,6 +97,13 @@ export function Navbar() {
               onClick={() => setMobileOpen(false)}
             >
               Features
+            </Link>
+            <Link
+              href="#benchmark"
+              className="text-sm text-muted-foreground hover:text-foreground"
+              onClick={() => setMobileOpen(false)}
+            >
+              Benchmark
             </Link>
             <Link
               href="#how-it-works"
