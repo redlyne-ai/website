@@ -38,12 +38,13 @@ export function Features() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
-            A new kind of linter for a new kind of code
+            A security scanner for a new kind of code
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground text-pretty leading-relaxed">
-            Generic linters miss the failure modes of AI-generated code.
-            Redlyne is purpose-built for them — with a deterministic engine
-            and a rule set curated by security researchers.
+            Traditional security scanners were built for full codebases.
+            AI assistants generate fragments. Redlyne is purpose-built for
+            that gap — with a deterministic engine and a rule set curated
+            by security researchers.
           </p>
         </div>
 

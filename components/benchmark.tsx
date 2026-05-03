@@ -76,14 +76,14 @@ const stats = [
     value: "0.97",
     label: "Precision",
     description:
-      "Highest precision among static analyzers and leading LLMs. Fewer false positives, less noise.",
+      "Highest of any tool tested — beats every static analyzer and every LLM. Fewer false positives, less noise.",
   },
   {
     icon: Trophy,
     value: "0.93",
     label: "F1 Score",
     description:
-      "Best F1 of any static analyzer tested. On par with state-of-the-art LLMs.",
+      "Highest of any tool tested. Outperforms CodeQL, Semgrep, Bandit (0.77-0.80) and ChatGPT-4o, Claude 3.7, Gemini 2.0 (all 0.85).",
   },
   {
     icon: Wrench,
@@ -170,8 +170,9 @@ export function Benchmark() {
                 <Check className="h-3 w-3" strokeWidth={3} />
               </span>
               <p className="text-sm leading-relaxed text-foreground">
-                <strong>Highest F1 and Accuracy</strong> among static
-                analyzers, and on par with state-of-the-art LLMs for F1.
+                <strong>Highest F1 Score and Accuracy</strong> of any tool
+                tested — outperforming both traditional static analyzers
+                (CodeQL, Semgrep, Bandit) and the latest LLM-based assistants.
               </p>
             </div>
             <div className="flex items-start gap-3">
