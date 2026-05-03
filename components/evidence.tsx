@@ -57,6 +57,26 @@ export function Evidence() {
               curated by security researchers.
             </span>
           </p>
+          <p className="mt-6 text-xs text-muted-foreground">
+            Sources:{" "}
+            <a
+              href="https://doi.org/10.1109/DSN-W65791.2025.00077"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-offset-2 hover:text-foreground hover:underline"
+            >
+              IEEE DSN-W 2025
+            </a>
+            {" · "}
+            <a
+              href="https://doi.org/10.1016/j.infsof.2024.107572"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline-offset-2 hover:text-foreground hover:underline"
+            >
+              Information and Software Technology, 2025
+            </a>
+          </p>
         </div>
       </div>
     </section>
