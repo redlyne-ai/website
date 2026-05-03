@@ -268,22 +268,69 @@ export function Benchmark() {
           </table>
         </div>
 
+        {/* Coverage at a glance */}
+        <div className="mt-12">
+          <div className="mb-6 text-center">
+            <h3 className="text-xl font-bold tracking-tight text-foreground md:text-2xl">
+              Coverage at a glance
+            </h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              35 CWE categories across 9 of the 10 OWASP Top 10:2021 areas.
+              10 of them are in MITRE&apos;s Top 25 most dangerous weaknesses.
+            </p>
+          </div>
+
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { code: "A01", name: "Broken Access Control", count: 4 },
+              { code: "A02", name: "Cryptographic Failures", count: 9 },
+              { code: "A03", name: "Injection", count: 13 },
+              { code: "A04", name: "Insecure Design", count: 3 },
+              { code: "A05", name: "Security Misconfiguration", count: 1 },
+              { code: "A07", name: "Identification & Authentication Failures", count: 2 },
+              { code: "A08", name: "Software & Data Integrity Failures", count: 1 },
+              { code: "A09", name: "Security Logging & Monitoring", count: 1 },
+              { code: "A10", name: "Server-Side Request Forgery (SSRF)", count: 1 },
+            ].map((cat) => (
+              <div
+                key={cat.code}
+                className="flex items-center gap-3 rounded-lg border border-border bg-card px-4 py-3 transition-colors hover:border-primary/30"
+              >
+                <div className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-md bg-primary/10 font-mono text-xs font-bold text-primary">
+                  {cat.code}
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="truncate text-sm font-medium text-foreground">
+                    {cat.name}
+                  </div>
+                  <div className="text-xs text-muted-foreground">
+                    {cat.count} {cat.count === 1 ? "CWE" : "CWEs"}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 text-center">
+            <a
+              href="https://github.com/redlyne-ai/redlyne/blob/main/COVERAGE.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-primary underline-offset-2 hover:underline"
+            >
+              See the full list of 35 CWEs →
+            </a>
+          </div>
+        </div>
+
         {/* Methodology note */}
-        <div className="mt-8 mx-auto max-w-3xl space-y-3 text-xs text-muted-foreground text-center">
+        <div className="mt-12 mx-auto max-w-3xl space-y-3 text-xs text-muted-foreground text-center">
           <p>
             Detection rules were built from 240 real vulnerable Python
             samples sourced from SecurityEval and the Copilot CWE Scenarios
             Dataset, two established benchmarks in security research. CodeQL
             provides no patching feature; Semgrep and Bandit only emit
-            comment-style suggestions without modifying code.{" "}
-            <a
-              href="https://github.com/redlyne-ai/redlyne/blob/main/COVERAGE.md"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary underline-offset-2 hover:underline"
-            >
-              See the full list of covered CWEs →
-            </a>
+            comment-style suggestions without modifying code.
           </p>
           <p>
             Specific model versions evolve quickly, but the structural
