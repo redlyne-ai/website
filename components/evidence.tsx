@@ -4,23 +4,28 @@ export function Evidence() {
       <div className="mx-auto max-w-5xl px-6">
         <div className="text-center">
           <p className="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-            The reality of AI-generated code
+            The reality of AI-generated Python code
           </p>
-          <h2 className="mx-auto max-w-2xl text-balance text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-            AI doesn&apos;t just write insecure code. Often, it doesn&apos;t
-            even write <em>complete</em> code.
+          <h2 className="mx-auto max-w-3xl text-balance text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+            Most of it is insecure. A meaningful share doesn&apos;t even
+            compile.
           </h2>
         </div>
 
         <div className="mt-12 grid gap-10 sm:grid-cols-2 sm:gap-6 md:gap-12">
           <div className="text-center">
             <div className="text-5xl font-bold text-primary md:text-6xl">
-              13%
+              76%
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground">
-              of AI-generated Python snippets are <strong>incomplete</strong>
-              {" "}— missing imports or context — across the major models
-              tested in a 2025 study (500 snippets, 4 AI assistants).
+              of AI-generated Python code contains{" "}
+              <strong>security vulnerabilities</strong>. Tested in 2025
+              across 609 snippets from GitHub Copilot, Claude 3.7 Sonnet,
+              and DeepSeek V3.
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              For Copilot specifically, the rate climbs to{" "}
+              <strong className="text-foreground">84%</strong>.
             </p>
           </div>
           <div className="text-center">
@@ -28,21 +33,28 @@ export function Evidence() {
               31%
             </div>
             <p className="mt-4 text-sm leading-relaxed text-foreground">
-              of <strong>GitHub Copilot&apos;s output</strong> specifically.
-              Almost one snippet in three ships without the imports needed
-              to actually run.
+              of GitHub Copilot&apos;s output is{" "}
+              <strong>incomplete</strong> — missing imports or context.
+              Almost one snippet in three ships without what it needs to
+              actually run.
+            </p>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Across the major AI assistants, the average sits at{" "}
+              <strong className="text-foreground">~13%</strong>.
             </p>
           </div>
         </div>
 
         <div className="mt-12 text-center">
-          <p className="mx-auto max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            AST-based analyzers like Bandit, CodeQL, and PyT need to build a
-            parse tree of the entire code to work. On incomplete snippets,
-            they can&apos;t even start.{" "}
+          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-muted-foreground">
+            Vulnerable code that <em>is</em> complete? Static analyzers can
+            flag it, but with high noise and high false-positive rates on
+            isolated snippets. Vulnerable code that&apos;s{" "}
+            <em>incomplete</em>? AST-based analyzers can&apos;t even start
+            — without imports, there&apos;s no parse tree to walk.{" "}
             <span className="font-semibold text-foreground">
-              Redlyne uses pattern-based detection — it works on any fragment,
-              with or without imports.
+              Redlyne handles both, with deterministic pattern matching
+              curated by security researchers.
             </span>
           </p>
         </div>
