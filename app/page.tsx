@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
+import { Evidence } from "@/components/evidence"
 import { Features } from "@/components/features"
 import { Benchmark } from "@/components/benchmark"
 import { CodeDemo } from "@/components/code-demo"
@@ -10,6 +11,7 @@ export default function Page() {
     <main>
       <Navbar />
       <Hero />
+      <Evidence />
       <Features />
       <Benchmark />
       <CodeDemo />
