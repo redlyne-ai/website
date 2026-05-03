@@ -97,7 +97,7 @@ const stats = [
     value: "35",
     label: "CWE categories",
     description:
-      "Covered by 85 detection rules, mapped to OWASP Top 10:2021.",
+      "Covered by 85 detection rules, mapped to OWASP Top 10:2021. 10 of them are in MITRE's Top 25 most dangerous weaknesses.",
   },
 ]
 
@@ -275,7 +275,15 @@ export function Benchmark() {
             samples sourced from SecurityEval and the Copilot CWE Scenarios
             Dataset, two established benchmarks in security research. CodeQL
             provides no patching feature; Semgrep and Bandit only emit
-            comment-style suggestions without modifying code.
+            comment-style suggestions without modifying code.{" "}
+            <a
+              href="https://github.com/redlyne-ai/redlyne/blob/main/COVERAGE.md"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline-offset-2 hover:underline"
+            >
+              See the full list of covered CWEs →
+            </a>
           </p>
           <p>
             Specific model versions evolve quickly, but the structural
