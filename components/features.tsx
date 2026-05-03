@@ -38,13 +38,14 @@ export function Features() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-balance">
-            A security scanner for a new kind of code
+            A security scanner for the way you actually work
           </h2>
           <p className="mt-4 max-w-2xl text-muted-foreground text-pretty leading-relaxed">
-            Traditional security scanners were built for full codebases.
-            AI assistants generate fragments. Redlyne is purpose-built for
-            that gap — with a deterministic engine and a rule set curated
-            by security researchers.
+            We copy AI-generated snippets into our codebase throughout the
+            day. Traditional security scanners need the full codebase to be
+            effective — impractical for that kind of fast, snippet-level
+            iteration. Redlyne is purpose-built for it, with a deterministic
+            engine and a rule set curated by security researchers.
           </p>
         </div>
 
