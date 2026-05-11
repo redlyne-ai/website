@@ -98,31 +98,68 @@ export function Benchmark() {
           </div>
           <div className="space-y-4 text-sm leading-relaxed text-foreground">
             <p>
-              The detection schema and the benchmark dataset come directly
-              from peer-reviewed work. Redlyne extends the Devaic v2.0 rule
-              set introduced in:
+              Redlyne builds on two peer-reviewed lines of work — the
+              detection engine and the automated remediation approach —
+              and benchmarks against the public datasets the original
+              papers introduced.
             </p>
-            <p className="rounded-lg border border-border bg-card/60 p-4 text-xs leading-relaxed">
-              Cotroneo, D., Improta, C., Liguori, P., Natella, R. (2024).
-              &quot;Vulnerabilities in AI Code Generators: Exploring Targeted
-              Data Poisoning Attacks.&quot; <em>Proceedings of the 32nd
-              IEEE/ACM International Conference on Program Comprehension
-              (ICPC &apos;24)</em>, pages 280–292.{" "}
+
+            <div className="rounded-lg border border-border bg-card/60 p-4 text-xs leading-relaxed">
+              <div className="mb-2 font-semibold text-foreground">Detection engine</div>
+              <p className="mb-2 text-muted-foreground">
+                Redlyne extends the DeVAIC v2.0 rule schema to 459 patterns and adds the{" "}
+                <code className="rounded bg-secondary/40 px-1 py-0.5 font-mono">pattern_not_file</code>{" "}
+                directive for scope-aware sanitization detection.
+              </p>
+              Cotroneo, D., De Luca, R., Liguori, P. (2025).
+              &quot;DeVAIC: A tool for security assessment of AI-generated
+              code.&quot; <em>Information and Software Technology</em>, 177,
+              107572.{" "}
               <a
-                href="https://doi.org/10.1145/3643916.3644416"
+                href="https://doi.org/10.1016/j.infsof.2024.107572"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-primary underline-offset-2 hover:underline"
               >
-                DOI 10.1145/3643916.3644416
+                DOI 10.1016/j.infsof.2024.107572
               </a>
               .
-            </p>
+            </div>
+
+            <div className="rounded-lg border border-border bg-card/60 p-4 text-xs leading-relaxed">
+              <div className="mb-2 font-semibold text-foreground">Automated remediation</div>
+              <p className="mb-2 text-muted-foreground">
+                Redlyne extends pattern-based patching with 14 multi-line
+                template rules, syntax-safety verification, and an
+                independent rule re-scan (&quot;targeted-clean&quot;) before
+                surfacing any fix to the user.
+              </p>
+              Altiero, F., Cotroneo, D., De Luca, R., Liguori, P. (2025).
+              &quot;Securing AI Code Generation Through Automated
+              Pattern-Based Patching.&quot; <em>55th Annual IEEE/IFIP
+              International Conference on Dependable Systems and Networks
+              Workshops (DSN-W)</em>, pp. 282–289.{" "}
+              <a
+                href="https://doi.org/10.1109/DSN-W65791.2025.00077"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary underline-offset-2 hover:underline"
+              >
+                DOI 10.1109/DSN-W65791.2025.00077
+              </a>
+              .
+            </div>
+
             <p className="text-muted-foreground">
-              Numbers reported above are reproduced from the same{" "}
-              <strong className="text-foreground">PoisonPy</strong> dataset
-              the paper introduced — same files, same labels — so anyone can
-              verify the claims locally.
+              Headline benchmark numbers above are reproduced from{" "}
+              <strong className="text-foreground">PoisonPy</strong>{" "}
+              <span className="text-muted-foreground/80">(Cotroneo et al.,
+              ICPC 2024)</span> — same files, same labels — so anyone can
+              verify the claims locally with{" "}
+              <code className="rounded bg-secondary/40 px-1 py-0.5 font-mono">
+                python tests/bench_baselines.py
+              </code>
+              .
             </p>
           </div>
         </div>
