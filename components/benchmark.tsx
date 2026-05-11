@@ -27,7 +27,7 @@ const stats = [
     value: "1700+",
     label: "Samples evaluated",
     description:
-      "Tested across 5 public Python-vulnerability benchmarks — PoisonPy, SafeCoder, SecurityEval, Copilot CWE Scenarios, and PromSec. 100% coverage on every dataset.",
+      "Tested across 5 public Python-vulnerability benchmarks — PoisonPy, SafeCoder, SecurityEval, Copilot CWE Scenarios, and PromSec. Redlyne analyzed every sample, on every dataset.",
   },
 ]
 
@@ -185,7 +185,7 @@ export function Benchmark() {
               <thead className="bg-secondary/30 text-xs uppercase tracking-wide text-muted-foreground">
                 <tr>
                   <th className="px-4 py-3 text-left font-medium">Tool</th>
-                  <th className="px-3 py-3 text-right font-medium">Coverage</th>
+                  <th className="px-3 py-3 text-right font-medium">Analyzed</th>
                   <th className="px-3 py-3 text-right font-medium">Precision</th>
                   <th className="px-3 py-3 text-right font-medium">Recall</th>
                   <th className="px-3 py-3 text-right font-medium">F1</th>
@@ -244,7 +244,7 @@ export function Benchmark() {
           </div>
 
           <p className="mt-4 text-xs text-muted-foreground">
-            <strong className="text-foreground">Coverage</strong> is the share of samples the tool was able to analyze. Bandit and Pylint use AST parsing and silently give up on syntactically informal samples — <strong className="text-foreground">83% of PoisonPy</strong> — because the dataset is by design close to what AI assistants emit. Redlyne and DeVAIC v2 are regex-based and process every sample.
+            <strong className="text-foreground">Analyzed</strong> is the share of samples the tool was able to process without a parse failure. Bandit and Pylint use AST parsing and silently give up on syntactically informal samples — <strong className="text-foreground">83% of PoisonPy</strong> — because the dataset is by design close to what AI assistants emit. Redlyne and DeVAIC v2 are regex-based and process every sample.
           </p>
           <p className="mt-2 text-xs text-muted-foreground">
             <sup className="text-primary">†</sup> Pylint&apos;s accuracy on PoisonPy is <strong className="text-foreground">49.7% — effectively random</strong>. On the 17% of samples it parses, it flags 96.7% of them as &quot;problematic&quot;, regardless of whether they&apos;re actually vulnerable.
