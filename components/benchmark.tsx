@@ -151,11 +151,10 @@ export function Benchmark() {
             </div>
 
             <p className="text-muted-foreground">
-              Headline benchmark numbers above are reproduced from{" "}
-              <strong className="text-foreground">PoisonPy</strong>{" "}
-              <span className="text-muted-foreground/80">(Cotroneo et al.,
-              ICPC 2024)</span> — same files, same labels — so anyone can
-              verify the claims locally with{" "}
+              All numbers shown on this page are{" "}
+              <strong className="text-foreground">our own measurements</strong>{" "}
+              on a May 2026 run across five public Python-vulnerability
+              datasets, not reproduced from any paper. Verify locally with{" "}
               <code className="rounded bg-secondary/40 px-1 py-0.5 font-mono">
                 python tests/bench_baselines.py
               </code>
@@ -171,107 +170,90 @@ export function Benchmark() {
               Head-to-head with open-source baselines
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
-              Five tools, five reference datasets, the same operational conditions a developer would see in their editor.
-              Reproducible end-to-end in ~10 minutes from the repo. <span className="text-foreground">Evaluated May 2026.</span>
+              Five tools across five public Python-vulnerability datasets,
+              same operational conditions a developer sees in their editor.
+              <span className="text-foreground"> Evaluated May 2026.</span>
             </p>
           </div>
 
+          {/* Bottom-line PoisonPy detail */}
+          <p className="mb-3 text-sm text-foreground">
+            <strong>PoisonPy</strong> — the only paired dataset where precision, F1 and accuracy are all measurable. <span className="text-muted-foreground">n = 310 (155 vulnerable + 155 clean).</span>
+          </p>
           <div className="overflow-x-auto rounded-xl border border-border">
             <table className="w-full text-sm">
               <thead className="bg-secondary/30 text-xs uppercase tracking-wide text-muted-foreground">
                 <tr>
-                  <th className="px-4 py-3 text-left font-medium" rowSpan={2}>Tool</th>
-                  <th className="px-4 py-3 text-center font-medium border-l border-border" colSpan={5}>
-                    PoisonPy (paired, n=310)
-                  </th>
-                  <th className="px-4 py-3 text-center font-medium border-l border-border" colSpan={2}>
-                    Vuln-only recall
-                  </th>
-                  <th className="px-4 py-3 text-center font-medium border-l border-border" rowSpan={2}>
-                    Latency<br /><span className="font-mono text-[10px]">ms/file</span>
-                  </th>
-                </tr>
-                <tr className="text-[10px]">
-                  <th className="px-2 py-2 text-right font-medium border-l border-border">Coverage</th>
-                  <th className="px-2 py-2 text-right font-medium">P</th>
-                  <th className="px-2 py-2 text-right font-medium">R</th>
-                  <th className="px-2 py-2 text-right font-medium">F1</th>
-                  <th className="px-2 py-2 text-right font-medium">Acc</th>
-                  <th className="px-2 py-2 text-right font-medium border-l border-border">SecurityEval</th>
-                  <th className="px-2 py-2 text-right font-medium">Copilot CWE</th>
+                  <th className="px-4 py-3 text-left font-medium">Tool</th>
+                  <th className="px-3 py-3 text-right font-medium">Coverage</th>
+                  <th className="px-3 py-3 text-right font-medium">Precision</th>
+                  <th className="px-3 py-3 text-right font-medium">Recall</th>
+                  <th className="px-3 py-3 text-right font-medium">F1</th>
+                  <th className="px-3 py-3 text-right font-medium">Accuracy</th>
+                  <th className="px-3 py-3 text-right font-medium">ms / file</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border font-mono text-xs">
                 <tr className="text-muted-foreground">
-                  <td className="px-4 py-3 text-left font-medium font-sans">Bandit</td>
-                  <td className="px-2 py-3 text-right border-l border-border text-amber-600 dark:text-amber-400">17%</td>
-                  <td className="px-2 py-3 text-right">69.2%</td>
-                  <td className="px-2 py-3 text-right">5.8%</td>
-                  <td className="px-2 py-3 text-right">0.11</td>
-                  <td className="px-2 py-3 text-right">51.6%</td>
-                  <td className="px-2 py-3 text-right border-l border-border">40.5%</td>
-                  <td className="px-2 py-3 text-right">84.7%</td>
-                  <td className="px-2 py-3 text-right border-l border-border">~20</td>
+                  <td className="px-4 py-3 text-left font-sans">Bandit</td>
+                  <td className="px-3 py-3 text-right text-amber-600 dark:text-amber-400">17%</td>
+                  <td className="px-3 py-3 text-right">69.2%</td>
+                  <td className="px-3 py-3 text-right">5.8%</td>
+                  <td className="px-3 py-3 text-right">0.107</td>
+                  <td className="px-3 py-3 text-right">51.6%</td>
+                  <td className="px-3 py-3 text-right">19.6</td>
                 </tr>
                 <tr className="text-muted-foreground">
-                  <td className="px-4 py-3 text-left font-medium font-sans">Pylint<sup className="text-primary">†</sup></td>
-                  <td className="px-2 py-3 text-right border-l border-border text-amber-600 dark:text-amber-400">17%</td>
-                  <td className="px-2 py-3 text-right">55.8%</td>
-                  <td className="px-2 py-3 text-right">18.7%</td>
-                  <td className="px-2 py-3 text-right">0.28</td>
-                  <td className="px-2 py-3 text-right">51.9%</td>
-                  <td className="px-2 py-3 text-right border-l border-border">59.5%</td>
-                  <td className="px-2 py-3 text-right">93.3%</td>
-                  <td className="px-2 py-3 text-right border-l border-border">~55</td>
+                  <td className="px-4 py-3 text-left font-sans">Pylint<sup className="text-primary">†</sup></td>
+                  <td className="px-3 py-3 text-right text-amber-600 dark:text-amber-400">17%</td>
+                  <td className="px-3 py-3 text-right">55.8%</td>
+                  <td className="px-3 py-3 text-right">18.7%</td>
+                  <td className="px-3 py-3 text-right">0.280</td>
+                  <td className="px-3 py-3 text-right">51.9%</td>
+                  <td className="px-3 py-3 text-right">58.7</td>
                 </tr>
                 <tr className="text-muted-foreground">
-                  <td className="px-4 py-3 text-left font-medium font-sans">Semgrep</td>
-                  <td className="px-2 py-3 text-right border-l border-border">86%</td>
-                  <td className="px-2 py-3 text-right">69.6%</td>
-                  <td className="px-2 py-3 text-right">20.6%</td>
-                  <td className="px-2 py-3 text-right">0.32</td>
-                  <td className="px-2 py-3 text-right">55.8%</td>
-                  <td className="px-2 py-3 text-right border-l border-border">34.7%</td>
-                  <td className="px-2 py-3 text-right">51.3%</td>
-                  <td className="px-2 py-3 text-right border-l border-border">~660</td>
+                  <td className="px-4 py-3 text-left font-sans">Semgrep</td>
+                  <td className="px-3 py-3 text-right">86%</td>
+                  <td className="px-3 py-3 text-right">69.6%</td>
+                  <td className="px-3 py-3 text-right">20.6%</td>
+                  <td className="px-3 py-3 text-right">0.318</td>
+                  <td className="px-3 py-3 text-right">55.8%</td>
+                  <td className="px-3 py-3 text-right">699.8</td>
                 </tr>
                 <tr className="text-muted-foreground">
-                  <td className="px-4 py-3 text-left font-medium font-sans">DeVAIC v2 (stock)</td>
-                  <td className="px-2 py-3 text-right border-l border-border">100%</td>
-                  <td className="px-2 py-3 text-right">68.0%</td>
-                  <td className="px-2 py-3 text-right">64.5%</td>
-                  <td className="px-2 py-3 text-right">0.66</td>
-                  <td className="px-2 py-3 text-right">67.1%</td>
-                  <td className="px-2 py-3 text-right border-l border-border">63.6%</td>
-                  <td className="px-2 py-3 text-right">68.0%</td>
-                  <td className="px-2 py-3 text-right border-l border-border">~0.5</td>
+                  <td className="px-4 py-3 text-left font-sans">DeVAIC v2 (stock)</td>
+                  <td className="px-3 py-3 text-right">100%</td>
+                  <td className="px-3 py-3 text-right">68.0%</td>
+                  <td className="px-3 py-3 text-right">64.5%</td>
+                  <td className="px-3 py-3 text-right">0.662</td>
+                  <td className="px-3 py-3 text-right">67.1%</td>
+                  <td className="px-3 py-3 text-right">0.5</td>
                 </tr>
                 <tr className="bg-primary/5 text-foreground">
                   <td className="px-4 py-3 text-left font-bold text-primary font-sans">Redlyne</td>
-                  <td className="px-2 py-3 text-right font-bold border-l border-border">100%</td>
-                  <td className="px-2 py-3 text-right font-bold">71.4%</td>
-                  <td className="px-2 py-3 text-right font-bold">96.8%</td>
-                  <td className="px-2 py-3 text-right font-bold">0.82</td>
-                  <td className="px-2 py-3 text-right font-bold">79.0%</td>
-                  <td className="px-2 py-3 text-right font-bold border-l border-border">93.4%</td>
-                  <td className="px-2 py-3 text-right font-bold">89.3%</td>
-                  <td className="px-2 py-3 text-right font-bold border-l border-border">~1</td>
+                  <td className="px-3 py-3 text-right font-bold">100%</td>
+                  <td className="px-3 py-3 text-right font-bold">71.4%</td>
+                  <td className="px-3 py-3 text-right font-bold">96.8%</td>
+                  <td className="px-3 py-3 text-right font-bold">0.822</td>
+                  <td className="px-3 py-3 text-right font-bold">79.0%</td>
+                  <td className="px-3 py-3 text-right font-bold">1.4</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <p className="mt-4 text-xs text-muted-foreground">
-            <strong className="text-foreground">Coverage</strong> is the share of samples the tool was able to analyze. Bandit and Pylint use AST parsing and silently give up on syntactically informal samples, which represent <strong className="text-foreground">83% of PoisonPy</strong> — the dataset is by design close to what AI assistants emit. Redlyne and DeVAIC v2 are regex-based and process every sample.
+            <strong className="text-foreground">Coverage</strong> is the share of samples the tool was able to analyze. Bandit and Pylint use AST parsing and silently give up on syntactically informal samples — <strong className="text-foreground">83% of PoisonPy</strong> — because the dataset is by design close to what AI assistants emit. Redlyne and DeVAIC v2 are regex-based and process every sample.
           </p>
           <p className="mt-2 text-xs text-muted-foreground">
             <sup className="text-primary">†</sup> Pylint&apos;s accuracy on PoisonPy is <strong className="text-foreground">49.7% — effectively random</strong>. On the 17% of samples it parses, it flags 96.7% of them as &quot;problematic&quot;, regardless of whether they&apos;re actually vulnerable.
           </p>
 
-          {/* Cross-dataset compact table */}
+          {/* Generalization across all 5 datasets */}
           <div className="mt-8">
             <p className="mb-3 text-sm text-foreground">
-              <strong>Headline by dataset.</strong> F1 for paired datasets, recall for vulnerable-only:
+              <strong>Generalization across datasets.</strong> Headline metric per dataset, all five tools side-by-side — F1 for paired, recall for vulnerable-only:
             </p>
             <div className="overflow-x-auto rounded-xl border border-border">
               <table className="w-full text-sm">
@@ -290,20 +272,20 @@ export function Benchmark() {
                   <tr>
                     <td className="px-3 py-2 text-left font-sans">PoisonPy <span className="text-muted-foreground text-[10px]">F1</span></td>
                     <td className="px-3 py-2 text-right text-muted-foreground">310</td>
-                    <td className="px-3 py-2 text-right text-muted-foreground">0.11</td>
-                    <td className="px-3 py-2 text-right text-muted-foreground">0.32</td>
-                    <td className="px-3 py-2 text-right text-muted-foreground">0.28</td>
-                    <td className="px-3 py-2 text-right text-muted-foreground">0.66</td>
-                    <td className="px-3 py-2 text-right font-bold text-primary bg-primary/5">0.82</td>
+                    <td className="px-3 py-2 text-right text-muted-foreground">0.107</td>
+                    <td className="px-3 py-2 text-right text-muted-foreground">0.318</td>
+                    <td className="px-3 py-2 text-right text-muted-foreground">0.280</td>
+                    <td className="px-3 py-2 text-right text-muted-foreground">0.662</td>
+                    <td className="px-3 py-2 text-right font-bold text-primary bg-primary/5">0.822</td>
                   </tr>
                   <tr>
                     <td className="px-3 py-2 text-left font-sans">SafeCoder <span className="text-muted-foreground text-[10px]">F1</span></td>
                     <td className="px-3 py-2 text-right text-muted-foreground">1052</td>
-                    <td className="px-3 py-2 text-right text-muted-foreground">0.44</td>
-                    <td className="px-3 py-2 text-right text-muted-foreground">0.52</td>
-                    <td className="px-3 py-2 text-right text-muted-foreground">0.45</td>
-                    <td className="px-3 py-2 text-right text-muted-foreground">0.50</td>
-                    <td className="px-3 py-2 text-right font-bold text-primary bg-primary/5">0.56</td>
+                    <td className="px-3 py-2 text-right text-muted-foreground">0.435</td>
+                    <td className="px-3 py-2 text-right text-muted-foreground">0.515</td>
+                    <td className="px-3 py-2 text-right text-muted-foreground">0.449</td>
+                    <td className="px-3 py-2 text-right text-muted-foreground">0.501</td>
+                    <td className="px-3 py-2 text-right font-bold text-primary bg-primary/5">0.556</td>
                   </tr>
                   <tr>
                     <td className="px-3 py-2 text-left font-sans">SecurityEval <span className="text-muted-foreground text-[10px]">recall</span></td>
@@ -336,8 +318,7 @@ export function Benchmark() {
               </table>
             </div>
             <p className="mt-3 text-xs text-muted-foreground">
-              <strong className="text-foreground">SafeCoder</strong> (He et al., ICML 2024) is 526 vulnerable Python functions paired with their real commit-based fixes — production-grade ground truth from public open-source projects.{" "}
-              <strong className="text-foreground">PromSec</strong> (Nazzal et al., CCS 2024) adds 600 Copilot-generated vulnerable samples for a stress test on AI-generated code volume.
+              On <strong className="text-foreground">Copilot</strong> and <strong className="text-foreground">PromSec</strong>, Pylint&apos;s &quot;flag almost everything&quot; mode nudges it slightly above Redlyne on raw recall — but at the cost of a 49.7% accuracy on the paired benchmarks (effectively random). On the only two datasets where precision is measurable, <strong className="text-foreground">Redlyne leads</strong>.
             </p>
           </div>
         </div>
@@ -445,12 +426,9 @@ export function Benchmark() {
             Redlyne is a deterministic regex/AST rule engine. No LLM, no
             probabilistic guesses: every flag and every patch is reproducible
             by design. The rule set was derived from analysis of vulnerable
-            Python samples in five established benchmarks — PoisonPy
-            (Cotroneo et al., ICPC 2024), SafeCoder (He et al., ICML 2024),
-            SecurityEval, Copilot CWE Scenarios, and PromSec
-            (Nazzal et al., CCS 2024) — and evaluated end-to-end on 1700+
-            vulnerable Python samples. Numbers shown reflect the evaluation
-            run of May 2026.
+            Python samples in state-of-the-art security benchmark datasets,
+            and evaluated end-to-end on 1700+ vulnerable Python samples in
+            our May 2026 run.
           </p>
           <p>
             Reproduce locally:{" "}
